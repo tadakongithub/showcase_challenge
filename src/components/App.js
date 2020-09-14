@@ -1,10 +1,11 @@
 import React, {Fragment} from 'react'
+import Intro from './Intro'
 
 const App = () => {
     return(
-        <React.Fragment>
-            hi
-        </React.Fragment>
+        <Fragment>
+            <Intro />
+        </Fragment>
     )
 }
 
