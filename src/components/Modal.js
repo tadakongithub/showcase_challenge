@@ -25,6 +25,13 @@ const Ul = styled.ul`
     list-style-type: none;
     margin: 0;
     padding: 0;
+    height: auto;
+    max-height: 100px;
+    overflow: scroll;
+`
+
+const Li = styled.li`
+    cursor: pointer;
 `
 
 const Modal = (props) => {
@@ -33,15 +40,18 @@ const Modal = (props) => {
     const [matchedUni, setMatchedUni] = useState([])
     const allUniversities = props.allUniversities
 
-    const display = props.showModal ? 'flex' : 'none';
+    const displayModal = props.showModal ? 'flex' : 'none';
+    const displayOptions = matchedUni.length  == 0 ? 'none' : 'block';
 
     const handleChange = (e) => {
         const value = e.target.value
         setUniversity(value)
+        console.log(university)
         if(value.length > 3){
             const matchedItems = allUniversities.filter(item => {
                 const name = item.name.toLowerCase()
-                return name.includes(value)
+                const lowerCaseValue = value.toLowerCase()
+                return name.includes(lowerCaseValue)
             })
             setMatchedUni(matchedItems)
         } else {
@@ -56,14 +66,14 @@ const Modal = (props) => {
         setMatchedUni([])
     }
 
-    const listItems = matchedUni.map((item, index) => <li key={index} onClick={handleClick}>{item.name}</li>)
+    const listItems = matchedUni.map((item, index) => <Li key={index} onClick={handleClick}>{item.name}</Li>)
 
     return (
-        <Container style={{display: display}}>
+        <Container style={{display: displayModal}}>
             <Form>
                 <label>University</label>
                 <input type="text" value={university} onChange={handleChange} />
-                <Ul>{listItems}</Ul>
+                <Ul style={{display: displayOptions}}>{listItems}</Ul>
             </Form>
         </Container> 
     )
