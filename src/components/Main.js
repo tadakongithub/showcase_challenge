@@ -45,7 +45,7 @@ const Main = (props) => {
         setShowModal(false)
     }
 
-    const educationLists = education.map((item, index) => {
+    const educationLists = education.slice().reverse().map((item, index) => {
         return (
             <EachEducationPanel key={index}>
                 <h2>{item.degree} {item.study} @ {item.university}</h2>
