@@ -72,6 +72,11 @@ const Modal = (props) => {
         setMatchedUni([])
     }
 
+    const handleSave = (e) => {
+        e.preventDefault()
+        props.handleSave(university, degree, study, startYear, endYear, gpa, description)
+    }
+
     const listItems = matchedUni.map((item, index) => <Li key={index} onClick={handleClick}>{item.name}</Li>)
 
     return (
@@ -100,6 +105,7 @@ const Modal = (props) => {
                 <input type="number" step="0.01" min="0" max="4" value={gpa} onChange={e => setGpa(e.target.value)} />
                 <label>Description</label>
                 <textarea value={description} onChange={e => setDescription(e.target.value)} />
+                <button onClick={handleSave}>Click</button>
             </Form>
         </Container> 
     )
