@@ -1,10 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect } from 'react'
 import Intro from './Intro'
 import Main from './Main'
 
 const App = () => {
 
     const [userName, setUserName] = useState('')
+    const [allUniversities, setAllUniversities] = useState(undefined)
+
+    useEffect(() => {
+        fetch(`http://universities.hipolabs.com/search`)
+        .then(res => res.json())
+        .then(result => {
+            setAllUniversities(result)
+        })
+    }, [])
 
     const setName = (userName) => {
         setUserName(userName)
@@ -20,7 +29,7 @@ const App = () => {
 
     return (
         <React.Fragment>
-            <Main userName={userName}/>
+            <Main userName={userName} allUniversities={allUniversities}/>
         </React.Fragment>
     )
     
