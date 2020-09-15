@@ -39,9 +39,15 @@ const Modal = (props) => {
     const [university, setUniversity] = useState('')
     const [matchedUni, setMatchedUni] = useState([])
     const allUniversities = props.allUniversities
+    const [degree, setDegree] = useState('')
+    const [study, setStudy] = useState('')
+    const [startYear, setStartYear] = useState('')
+    const [endYear, setEndYear] = useState('')
+    const [gpa, setGpa] = useState(0)
+    const [description, setDescription] = useState('')
 
     const displayModal = props.showModal ? 'flex' : 'none';
-    const displayOptions = matchedUni.length  == 0 ? 'none' : 'block';
+    const displayOptions = matchedUni.length  === 0 ? 'hidden' : 'block';
 
     const handleChange = (e) => {
         const value = e.target.value
@@ -74,6 +80,26 @@ const Modal = (props) => {
                 <label>University</label>
                 <input type="text" value={university} onChange={handleChange} />
                 <Ul style={{display: displayOptions}}>{listItems}</Ul>
+                <label>Degree</label>
+                <select value={degree} onChange={(e) => setDegree(e.target.value)}>
+                    <option value="A.A.">A.A.</option>
+                    <option value="A.S.">A.S.</option>
+                    <option value="B.A.">B.A.</option>
+                    <option value="B.S.">B.S.</option>
+                    <option value="M.A.">M.A.</option>
+                    <option value="M.S.">M.S.</option>
+                    <option value="Ph.D.">Ph.D.</option>
+                </select>
+                <label>Field of Study</label>
+                <input type="text" value={study} onChange={(e) => setStudy(e.target.value)} />
+                <label>Start Year</label> 
+                <input type="number" value={startYear} onChange={(e) => setStartYear(e.target.value)} placeholder="yyyy" />
+                <label>End Year</label>
+                <input type="number" value={endYear} onChange={e => setEndYear(e.target.value)} placeholder="yyyy" />
+                <label>GPA</label>
+                <input type="number" step="0.01" min="0" max="4" value={gpa} onChange={e => setGpa(e.target.value)} />
+                <label>Description</label>
+                <textarea value={description} onChange={e => setDescription(e.target.value)} />
             </Form>
         </Container> 
     )
