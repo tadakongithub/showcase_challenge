@@ -23,6 +23,7 @@ const MainPanel = styled.div`
 
 const EachEducationPanel = styled.div`
     background-color: #ddd;
+    padding: 10px;
 `
 
 const Main = (props) => {
@@ -47,13 +48,10 @@ const Main = (props) => {
     const educationLists = education.map((item, index) => {
         return (
             <EachEducationPanel key={index}>
-                <li>{item.university}</li>
-                <li>{item.degree}</li>
-                <li>{item.study}</li>
-                <li>{item.startYear}</li>
-                <li>{item.endYear}</li>
-                <li>{item.gpa}</li>
-                <li>{item.description}</li>
+                <h2>{item.degree} {item.study} @ {item.university}</h2>
+                <div>{item.startYear} - {item.endYear}</div>
+                <div>GPA : {item.gpa}</div>
+                <div>Description:<br></br>{item.description}</div>
             </EachEducationPanel>
         )
     })
