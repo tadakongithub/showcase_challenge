@@ -75,6 +75,14 @@ const Modal = (props) => {
     const handleSave = (e) => {
         e.preventDefault()
         props.handleSave(university, degree, study, startYear, endYear, gpa, description)
+        setUniversity('')
+        setMatchedUni([])
+        setDegree('')
+        setStudy('')
+        setStartYear('')
+        setEndYear('')
+        setGpa(0)
+        setDescription('')
     }
 
     const listItems = matchedUni.map((item, index) => <Li key={index} onClick={handleClick}>{item.name}</Li>)
