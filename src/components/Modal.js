@@ -19,19 +19,42 @@ const Form = styled.form`
     width: 500px;
     height: 400px;
     background-color: #fff;
+    padding: 15px;
+    overflow: scroll;
 `
 
 const Ul = styled.ul`
     list-style-type: none;
     margin: 0;
     padding: 0;
-    height: auto;
-    max-height: 100px;
+    height: 100px;
     overflow: scroll;
+    position: absolute;
+    top: 23px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 100%;
 `
 
 const Li = styled.li`
     cursor: pointer;
+`
+
+const EachInputField = styled.div`
+    margin-top: 10px;
+`
+
+const Input = styled.input`
+    width: 100%;
+`
+
+const UniWrapper  = styled.div`
+    position: relative;
+`
+
+const Description = styled.textarea`
+    width: 100%;
+    height: 200px;
 `
 
 const Modal = (props) => {
@@ -47,7 +70,7 @@ const Modal = (props) => {
     const [description, setDescription] = useState('')
 
     const displayModal = props.showModal ? 'flex' : 'none';
-    const displayOptions = matchedUni.length  === 0 ? 'hidden' : 'block';
+    const displayOptions = matchedUni.length  === 0 ? 'none' : 'block';
 
     const handleChange = (e) => {
         const value = e.target.value
@@ -90,29 +113,45 @@ const Modal = (props) => {
     return (
         <Container style={{display: displayModal}}>
             <Form>
-                <label>University</label>
-                <input type="text" value={university} onChange={handleChange} />
-                <Ul style={{display: displayOptions}}>{listItems}</Ul>
-                <label>Degree</label>
-                <select value={degree} onChange={(e) => setDegree(e.target.value)}>
-                    <option value="A.A.">A.A.</option>
-                    <option value="A.S.">A.S.</option>
-                    <option value="B.A.">B.A.</option>
-                    <option value="B.S.">B.S.</option>
-                    <option value="M.A.">M.A.</option>
-                    <option value="M.S.">M.S.</option>
-                    <option value="Ph.D.">Ph.D.</option>
-                </select>
-                <label>Field of Study</label>
-                <input type="text" value={study} onChange={(e) => setStudy(e.target.value)} />
-                <label>Start Year</label> 
-                <input type="number" value={startYear} onChange={(e) => setStartYear(e.target.value)} placeholder="yyyy" />
-                <label>End Year</label>
-                <input type="number" value={endYear} onChange={e => setEndYear(e.target.value)} placeholder="yyyy" />
-                <label>GPA</label>
-                <input type="number" step="0.01" min="0" max="4" value={gpa} onChange={e => setGpa(e.target.value)} />
-                <label>Description</label>
-                <textarea value={description} onChange={e => setDescription(e.target.value)} />
+                <EachInputField>
+                    <label>University</label><br/>
+                    <UniWrapper>
+                        <Input type="text" value={university} onChange={handleChange} />
+                        <Ul style={{display: displayOptions}}>{listItems}</Ul>
+                    </UniWrapper>
+                </EachInputField>
+                <EachInputField>
+                    <label>Degree</label><br/>
+                    <select value={degree} onChange={(e) => setDegree(e.target.value)}>
+                        <option value="A.A.">A.A.</option>
+                        <option value="A.S.">A.S.</option>
+                        <option value="B.A.">B.A.</option>
+                        <option value="B.S.">B.S.</option>
+                        <option value="M.A.">M.A.</option>
+                        <option value="M.S.">M.S.</option>
+                        <option value="Ph.D.">Ph.D.</option>
+                    </select>
+                </EachInputField>
+                <EachInputField>
+                    <label>Field of Study</label><br/>
+                    <Input type="text" value={study} onChange={(e) => setStudy(e.target.value)} />
+                </EachInputField>
+                <EachInputField>
+                    <label>Start Year</label> <br/>
+                    <Input type="number" value={startYear} onChange={(e) => setStartYear(e.target.value)} placeholder="yyyy" />
+                </EachInputField>
+                <EachInputField>
+                    <label>End Year</label><br/>
+                    <Input type="number" value={endYear} onChange={e => setEndYear(e.target.value)} placeholder="yyyy" />
+                </EachInputField>
+                <EachInputField>
+                    <label>GPA</label><br/>
+                    <Input type="number" step="0.01" min="0" max="4" value={gpa} onChange={e => setGpa(e.target.value)} />
+                </EachInputField>
+                <EachInputField>
+                    <label>Description</label><br/>
+                    <Description value={description} onChange={e => setDescription(e.target.value)} />
+                </EachInputField>
                 <button onClick={handleSave}>Click</button>
             </Form>
         </Container> 
