@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import Intro from './Intro'
+import Intro from './pages/Intro'
 import Main from './Main'
 
 const App = () => {

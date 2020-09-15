@@ -8,7 +8,8 @@ const Intro = (props) => {
         console.log(userName)
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault()
         props.setName(userName)
     }
 
