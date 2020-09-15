@@ -11,8 +11,8 @@ const ContainerForEducationPanels = styled.div`
 const SidePanle = styled.ul`
     background-color: #ddd;
     margin: 0;
-    padding: 0;
-    list-style-type: none;
+    padding: 10px;
+    padding-left: 20px;
 `
 
 const MainPanel = styled.div`
@@ -56,13 +56,19 @@ const Main = (props) => {
         )
     })
 
+    const uniLists = education.slice().reverse().map((item, index) => {
+        return (
+            <li key={index}>{item.university}</li>
+        )
+    })
+
     return (
         <React.Fragment>
             <h1>Welcome to {props.userName}'s education page</h1>
             <button onClick={() => setShowModal(true)}>Add new education</button>
             <Modal showModal={showModal} allUniversities={props.allUniversities} handleSave={handleSave} />
             <ContainerForEducationPanels>
-                <SidePanle></SidePanle>
+                <SidePanle>{uniLists}</SidePanle>
                 <MainPanel>{educationLists}</MainPanel>
             </ContainerForEducationPanels>
         </React.Fragment>
