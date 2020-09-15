@@ -1,26 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
+import NameForm from '../organisms/NameForm'
 
-const Intro = (props) => {
-    const [userName, setUserName] = useState('')
-
-    const onChange = (e) => {
-        setUserName(e.target.value)
-        console.log(userName)
-    }
-
-    const onSubmit = (e) => {
-        e.preventDefault()
-        props.setName(userName)
-    }
-
-    return (
-        <form onSubmit={onSubmit}>
-            <p>Hi there! Welcome to your education showcase.</p>
-            <p>Type your name  and click Enter below too begin!</p>
-            <input type="text" onChange={onChange} value={userName} />
-            <button>Enter</button>
-        </form>
-    )
-}
+const Intro = (props) => <NameForm setName={props.setName}/>
 
 export default Intro
