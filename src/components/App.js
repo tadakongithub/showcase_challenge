@@ -19,19 +19,7 @@ const App = () => {
         setUserName(userName)
     }
 
-    if(userName === ''){
-        return(
-            <React.Fragment>
-                <Intro setName={setName}/>
-            </React.Fragment>
-        )
-    }
-
-    return (
-        <React.Fragment>
-            <Main userName={userName} allUniversities={allUniversities}/>
-        </React.Fragment>
-    )
+    return userName === '' ? <Intro setName={setName}/> : <Main userName={userName} allUniversities={allUniversities}/>
     
 }
 
