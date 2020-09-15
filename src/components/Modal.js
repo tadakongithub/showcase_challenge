@@ -39,7 +39,7 @@ const Modal = (props) => {
     const [university, setUniversity] = useState('')
     const [matchedUni, setMatchedUni] = useState([])
     const allUniversities = props.allUniversities
-    const [degree, setDegree] = useState('')
+    const [degree, setDegree] = useState('A.A.')
     const [study, setStudy] = useState('')
     const [startYear, setStartYear] = useState('')
     const [endYear, setEndYear] = useState('')
@@ -77,7 +77,7 @@ const Modal = (props) => {
         props.handleSave(university, degree, study, startYear, endYear, gpa, description)
         setUniversity('')
         setMatchedUni([])
-        setDegree('')
+        setDegree('A.A.')
         setStudy('')
         setStartYear('')
         setEndYear('')

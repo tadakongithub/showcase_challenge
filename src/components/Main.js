@@ -1,5 +1,29 @@
 import React, { useState } from 'react'
 import Modal from './Modal'
+import styled  from 'styled-components'
+
+const ContainerForEducationPanels = styled.div`
+    display: grid;
+    grid-template-columns: 25% 75%;
+    column-gap: 10px;
+` 
+
+const SidePanle = styled.ul`
+    background-color: #ddd;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+`
+
+const MainPanel = styled.div`
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 10px;
+`
+
+const EachEducationPanel = styled.div`
+    background-color: #ddd;
+`
 
 const Main = (props) => {
 
@@ -22,10 +46,15 @@ const Main = (props) => {
 
     const educationLists = education.map((item, index) => {
         return (
-            <div key={index}>
+            <EachEducationPanel key={index}>
                 <li>{item.university}</li>
                 <li>{item.degree}</li>
-            </div>
+                <li>{item.study}</li>
+                <li>{item.startYear}</li>
+                <li>{item.endYear}</li>
+                <li>{item.gpa}</li>
+                <li>{item.description}</li>
+            </EachEducationPanel>
         )
     })
 
@@ -34,7 +63,10 @@ const Main = (props) => {
             <h1>Welcome to {props.userName}'s education page</h1>
             <button onClick={() => setShowModal(true)}>Add new education</button>
             <Modal showModal={showModal} allUniversities={props.allUniversities} handleSave={handleSave} />
-            <ul>{educationLists}</ul>
+            <ContainerForEducationPanels>
+                <SidePanle></SidePanle>
+                <MainPanel>{educationLists}</MainPanel>
+            </ContainerForEducationPanels>
         </React.Fragment>
     )
 }
