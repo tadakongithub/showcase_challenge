@@ -1,19 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-
-const Container = styled.div`
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,.3);
-    z-index: 1;
-    align-items: center;
-    justify-content: center;
-`
+import ModalContainer from '../atoms/ModalContainer'
+import ModalHeader from '../molecules/ModalHeader'
 
 const Form = styled.form`
     width: 500px;
@@ -111,9 +99,10 @@ const Modal = (props) => {
     const listItems = matchedUni.map((item, index) => <Li key={index} onClick={handleClick}>{item.name}</Li>)
 
     return (
-        <Container style={{display: displayModal}}>
+        <ModalContainer style={{display: displayModal}}>
+            
             <Form>
-                <button onClick={props.closeModal}>close</button>
+                <ModalHeader closeModal={props.closeModal} />
                 <EachInputField>
                     <label>University</label><br/>
                     <UniWrapper>
@@ -155,7 +144,7 @@ const Modal = (props) => {
                 </EachInputField>
                 <button onClick={handleSave}>Click</button>
             </Form>
-        </Container> 
+        </ModalContainer> 
     )
 }
 

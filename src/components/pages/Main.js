@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Modal from '../Modal'
+import Modal from '../organisms/Modal'
 import MainHeader from '../organisms/MainHeader'
 import MainBody from '../organisms/MainBody'
 
