@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import NameFormHeader1 from '../atoms/NameFormHeader1'
 import NameFormHeader2 from '../atoms/NameFormHeader2'
-import NameField from '../atoms/NameField'
-import NameEnter from '../atoms/NameEnter'
 import FormBox from '../atoms/FormBox'
+import NameFormBottom from '../molecules/NameFormBottom'
 
 const NameForm = (props) => {
     const [userName, setUserName] = useState('')
@@ -21,8 +20,7 @@ const NameForm = (props) => {
         <FormBox submitName={submitName}>
             <NameFormHeader1 />
             <NameFormHeader2 />
-            <NameField changeUserName={changeUserName} userName={userName}/>
-            <NameEnter />
+            <NameFormBottom changeUserName={changeUserName}/>
         </FormBox>
     )
 }
