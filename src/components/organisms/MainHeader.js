@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MainTitle from '../atoms/MainTitle'
-import AddEducationButton from '../atoms/AddEducationButton'
+import PrimaryButton from '../atoms/PrimaryButton'
 
 const Container = styled.div`
     margin-bottom: 25px;
@@ -14,7 +14,7 @@ const MainHeader = (props) => {
     return (
         <Container>
             <MainTitle userName={props.userName} />
-            <AddEducationButton setModal={props.setModal}/>
+            <PrimaryButton setModal={props.setModal}>Add new education</PrimaryButton>
         </Container>
     )
 }

@@ -113,6 +113,7 @@ const Modal = (props) => {
     return (
         <Container style={{display: displayModal}}>
             <Form>
+                <button onClick={props.closeModal}>close</button>
                 <EachInputField>
                     <label>University</label><br/>
                     <UniWrapper>

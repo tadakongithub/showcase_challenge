@@ -1,6 +1,6 @@
 import React from 'react'
 import NameField from '../atoms/NameField'
-import NameEnter from '../atoms/NameEnter'
+import SecondaryButton from '../atoms/SecondaryButton'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -13,7 +13,7 @@ const NameFormBottom = (props) => {
     return (
         <Container>
             <NameField changeUserName={props.changeUserName} />
-            <NameEnter />
+            <SecondaryButton>Enter</SecondaryButton>
         </Container>
     )
 }

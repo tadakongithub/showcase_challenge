@@ -4,7 +4,7 @@ import Main from './pages/Main'
 
 const App = () => {
 
-    const [userName, setUserName] = useState('test')
+    const [userName, setUserName] = useState('')
     const [allUniversities, setAllUniversities] = useState(undefined)
 
     useEffect(() => {

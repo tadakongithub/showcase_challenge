@@ -22,11 +22,16 @@ const Main = (props) => {
         setShowModal(false)
     }
 
+    const handleCloseButton = (e) => {
+        e.preventDefault()
+        setShowModal(false)
+    }
+
     return (
         <React.Fragment>
             <MainHeader userName={props.userName} setModal={() => setShowModal(true)}/>
             <MainBody education={education} />
-            <Modal showModal={showModal} allUniversities={props.allUniversities} handleSave={handleSave} />
+            <Modal showModal={showModal} closeModal={handleCloseButton} allUniversities={props.allUniversities} handleSave={handleSave} />
         </React.Fragment>
     )
 }
