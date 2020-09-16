@@ -4,7 +4,10 @@ import MainTitle from '../atoms/MainTitle'
 import AddEducationButton from '../atoms/AddEducationButton'
 
 const Container = styled.div`
-    
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 const MainHeader = (props) => {
