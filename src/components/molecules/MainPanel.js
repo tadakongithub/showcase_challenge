@@ -6,7 +6,9 @@ const MainPanelContainer = styled.div`
 `
 
 const MainPanel = (props) => {
-    const educationLists = props.education.slice().reverse().map((item, index) => <EachEducation item={item} key={index} />)
+    const educationLists = props.education.slice().reverse().map((item, index) => (
+        <EachEducation item={item} key={index} />
+    ))
     return <MainPanelContainer>{educationLists}</MainPanelContainer>
 }
 
