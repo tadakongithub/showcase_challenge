@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ModalContainer from '../atoms/ModalContainer'
-import ModalForm from '../atoms/ModalForm'
+import Form from '../atoms/Form'
 import ModalHeader from '../molecules/ModalHeader'
 import University from '../molecules/University'
 import Degree from '../molecules/Degree'
@@ -67,7 +67,7 @@ const Modal = (props) => {
 
     return (
         <ModalContainer style={{display: displayModal}}>
-            <ModalForm onSubmit={handleSave}>
+            <Form width="500px" height="500px" onSubmit={handleSave}>
                 <ModalHeader closeModal={props.closeModal} />
                 <University 
                     value={university}
@@ -90,7 +90,7 @@ const Modal = (props) => {
                 <Gpa title="GPA" value={gpa} handleChange={e => setGpa(e.target.value)} />
                 <Description title="Description" value={description} handleChange={e => setDescription(e.target.value)}/>
                 <button>Click</button>
-            </ModalForm>
+            </Form>
         </ModalContainer> 
     )
 }
