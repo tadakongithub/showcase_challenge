@@ -45,14 +45,6 @@ const Modal = (props) => {
 
     const ArrayOfDegrees = ['A.A.', 'A.S.', 'B.A.', 'B.S.', 'M.A.', 'M.S.', 'Ph.D.']
 
-    const handleChangeOfDegree = (e) => {
-        setDegree(e.target.value)
-    }
-
-    const handleChangeOfStudy = (e) => {
-        setStudy(e.target.value)
-    }
-
     const handleSave = (e) => {
         e.preventDefault()
         props.handleSave(university, degree, study, startYear, endYear, gpa, description)
@@ -76,20 +68,41 @@ const Modal = (props) => {
                     matchedUni={matchedUni}
                     handleClick={handleUniversityClicked}
                 />
-                <SelectSet title="Degree" array={ArrayOfDegrees} value={degree} handleChange={handleChangeOfDegree}/>
-                <InputSet title="Field Of Study" type="text" value={study} handleChange={handleChangeOfStudy}/>
+                <SelectSet
+                    title="Degree"
+                    array={ArrayOfDegrees}
+                    value={degree}
+                    handleChange={e => setDegree(e.target.value)}
+                />
+                <InputSet
+                    title="Field Of Study"
+                    type="text"
+                    value={study}
+                    handleChange={e => setStudy(e.target.value)}
+                />
                 <Year
                     title="Start Year"
                     value={startYear}
-                    handleChange={(e) => setStartYear(e.target.value)}
+                    handleChange={e => setStartYear(e.target.value)}
                 />
                 <Year
                     title="End Year"
                     value={endYear}
-                    handleChange={(e) => setEndYear(e.target.value)}
+                    handleChange={e => setEndYear(e.target.value)}
                 />
-                <InputSet title="GPA" type="number" value={gpa} handleChange={e => setGpa(e.target.value)} />
-                <TextareaSet title="Description" width="100%" height="200px" value={description} handleChange={e => setDescription(e.target.value)}/>
+                <InputSet
+                    title="GPA"
+                    type="number"
+                    value={gpa}
+                    handleChange={e => setGpa(e.target.value)}
+                />
+                <TextareaSet
+                    title="Description"
+                    width="100%"
+                    height="200px"
+                    value={description}
+                    handleChange={e => setDescription(e.target.value)}
+                />
                 <Button color="white" bg="coral">Save</Button>
             </Form>
         </ModalBg> 
