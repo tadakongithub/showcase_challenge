@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import P from '../atoms/P'
+import Paragraph from '../atoms/Paragraph'
 import Form from '../atoms/Form'
 import FlexBox from '../atoms/FlexBox'
 import Input from '../atoms/Input'
@@ -20,8 +20,8 @@ const NameForm = (props) => {
 
     return (
         <Form onSubmit={submitName}>
-            <P text="Hi there! Welcome to your education showcase." />
-            <P text="Type your name and click Enter below to begin!" />
+            <Paragraph text="Hi there! Welcome to your education showcase." />
+            <Paragraph text="Type your name and click Enter below to begin!" />
             <FlexBox height="70px" direction="column" justifyContent="space-between">
                 <Input value={userName} onChange={changeUserName} />
                 <Button color="white" bg="palevioletred">Enter</Button>
