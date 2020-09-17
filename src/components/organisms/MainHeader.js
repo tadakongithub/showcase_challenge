@@ -6,7 +6,7 @@ import Button from '../atoms/Button'
 const MainHeader = (props) => {
     return (
         <FlexBox height="120px" direction="column" justifyContent="space-evenly">
-            <Title>Welcome to {props.userName}'s education page</Title>
+            <Title fs="1.75em">Welcome to {props.userName}'s education page</Title>
             <Button color="white" bg="dodgerblue" onClick={props.handleClick}>Add new education</Button>
         </FlexBox>
     )

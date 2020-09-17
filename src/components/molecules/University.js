@@ -1,5 +1,5 @@
 import React from 'react'
-import InputFieldWrapper from '../atoms/InputFieldWrapper'
+import Wrapper from '../atoms/Wrapper'
 import FieldLabel from '../atoms/FieldLabel'
 import PositionRelative from '../atoms/PositionRelative'
 import Input from '../atoms/Input'
@@ -15,13 +15,13 @@ const University = (props) => {
     const showOptions = props.matchedUni.length === 0 ? 'none' : 'block'
 
     return (
-        <InputFieldWrapper>
+        <Wrapper>
             <FieldLabel>University</FieldLabel><br/>
             <PositionRelative>
                 <Input type="text" value={props.value} onChange={props.handleChange} />
                 <UniOptionsWrapper style={{display: showOptions}}>{listItems}</UniOptionsWrapper>
             </PositionRelative>
-        </InputFieldWrapper>
+        </Wrapper>
     )
 }
 
