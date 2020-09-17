@@ -80,7 +80,7 @@ const Modal = (props) => {
 
     return (
         <ModalContainer style={{display: displayModal}}>
-            <Form>
+            <Form onSubmit={handleSave}>
                 <ModalHeader closeModal={props.closeModal} />
                 <University 
                     university={university}
@@ -107,7 +107,7 @@ const Modal = (props) => {
                     <label>Description</label><br/>
                     <Description value={description} onChange={e => setDescription(e.target.value)} />
                 </InputFieldWrapper>
-                <button onClick={handleSave}>Click</button>
+                <button>Click</button>
             </Form>
         </ModalContainer> 
     )
