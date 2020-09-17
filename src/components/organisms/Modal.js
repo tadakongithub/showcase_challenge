@@ -39,7 +39,7 @@ const Modal = (props) => {
     const updateUniversity = (e) => {
         const value = e.target.value
         setUniversity(value)
-        if(value.length > 3){
+        if(value.length >= 3){
             const matchedItems = allUniversities.filter(item => {
                 const name = item.name.toLowerCase()
                 const lowerCaseValue = value.toLowerCase()
@@ -57,7 +57,7 @@ const Modal = (props) => {
         setMatchedUni([])
     }
 
-    const handleSetDegree = (e) => {
+    const handleChangeOfDegree = (e) => {
         setDegree(e.target.value)
     }
 
@@ -89,7 +89,7 @@ const Modal = (props) => {
                     matchedUni={matchedUni}
                     uniClicked={handleUniClicked}
                 />
-                <Degree degree={degree} setDegree={handleSetDegree}/>
+                <Degree value={degree} handleChange={handleChangeOfDegree}/>
                 <Study value={study} handleChange={handleChangeOfStudy}/>
                 <InputFieldWrapper>
                     <label>Start Year</label> <br/>

@@ -10,7 +10,7 @@ const Degree = (props) => {
     return (
         <InputFieldWrapper>
             <FieldLabel>Degree</FieldLabel><br/>
-            <Select array={ArrayOfDegrees} value={props.degree} handleChange={props.setDegree}/>
+            <Select array={ArrayOfDegrees} value={props.value} handleChange={props.handleChange}/>
         </InputFieldWrapper>
     )
 }
