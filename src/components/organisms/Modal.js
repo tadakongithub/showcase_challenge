@@ -8,6 +8,7 @@ import Study from '../molecules/Study'
 import Year from '../molecules/Year'
 import Gpa from '../molecules/Gpa'
 import Description from '../molecules/Description'
+import Button from '../atoms/Button'
 
 const Modal = (props) => {
 
@@ -87,7 +88,7 @@ const Modal = (props) => {
                 />
                 <Gpa title="GPA" value={gpa} handleChange={e => setGpa(e.target.value)} />
                 <Description title="Description" value={description} handleChange={e => setDescription(e.target.value)}/>
-                <button>Click</button>
+                <Button color="white" bg="coral">Save</Button>
             </Form>
         </ModalBg> 
     )
