@@ -29,7 +29,7 @@ const Main = (props) => {
 
     return (
         <React.Fragment>
-            <MainHeader userName={props.userName} setModal={() => setShowModal(true)}/>
+            <MainHeader userName={props.userName} handleClick={() => setShowModal(true)}/>
             <MainBody education={education} />
             <Modal showModal={showModal} closeModal={handleCloseButton} allUniversities={props.allUniversities} handleSave={handleSave} />
         </React.Fragment>
