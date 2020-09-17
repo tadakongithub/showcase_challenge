@@ -1,7 +1,6 @@
 import React from 'react'
 import Wrapper from '../atoms/Wrapper'
 import FieldLabel from '../atoms/FieldLabel'
-import PositionRelative from '../atoms/PositionRelative'
 import Input from '../atoms/Input'
 import UniOptionsWrapper from '../atoms/UniOptionsWrapper'
 import ClickableLi from '../atoms/ClickableLi'
@@ -17,10 +16,10 @@ const University = (props) => {
     return (
         <Wrapper>
             <FieldLabel>University</FieldLabel><br/>
-            <PositionRelative>
+            <Wrapper pos="relative">
                 <Input type="text" value={props.value} onChange={props.handleChange} />
                 <UniOptionsWrapper style={{display: showOptions}}>{listItems}</UniOptionsWrapper>
-            </PositionRelative>
+            </Wrapper>
         </Wrapper>
     )
 }
