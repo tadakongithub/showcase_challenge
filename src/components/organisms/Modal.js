@@ -7,6 +7,7 @@ import InputFieldWrapper from '../atoms/InputFieldWrapper'
 import Input from '../atoms/Input'
 import Degree from '../molecules/Degree'
 import Study from '../molecules/Study'
+import Year from '../molecules/Year'
 
 const Form = styled.form`
     width: 500px;
@@ -89,14 +90,16 @@ const Modal = (props) => {
                 />
                 <Degree value={degree} handleChange={handleChangeOfDegree}/>
                 <Study value={study} handleChange={handleChangeOfStudy}/>
-                <InputFieldWrapper>
-                    <label>Start Year</label> <br/>
-                    <Input type="number" value={startYear} onChange={(e) => setStartYear(e.target.value)} placeholder="yyyy" />
-                </InputFieldWrapper>
-                <InputFieldWrapper>
-                    <label>End Year</label><br/>
-                    <Input type="number" value={endYear} onChange={e => setEndYear(e.target.value)} placeholder="yyyy" />
-                </InputFieldWrapper>
+                <Year
+                    title="Start Year"
+                    value={startYear}
+                    handleChange={(e) => setStartYear(e.target.value)}
+                />
+                <Year
+                    title="End Year"
+                    value={endYear}
+                    handleChange={(e) => setEndYear(e.target.value)}
+                />
                 <InputFieldWrapper>
                     <label>GPA</label><br/>
                     <Input type="number" step="0.01" min="0" max="4" value={gpa} onChange={e => setGpa(e.target.value)} />
