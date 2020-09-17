@@ -22,7 +22,7 @@ const Main = (props) => {
         setShowModal(false)
     }
 
-    const handleCloseButton = (e) => {
+    const closeModal = (e) => {
         e.preventDefault()
         setShowModal(false)
     }
@@ -31,7 +31,7 @@ const Main = (props) => {
         <React.Fragment>
             <MainHeader userName={props.userName} handleClick={() => setShowModal(true)}/>
             <MainBody education={education} />
-            <Modal showModal={showModal} closeModal={handleCloseButton} allUniversities={props.allUniversities} handleSave={handleSave} />
+            <Modal showModal={showModal} closeModal={closeModal} allUniversities={props.allUniversities} handleSave={handleSave} />
         </React.Fragment>
     )
 }

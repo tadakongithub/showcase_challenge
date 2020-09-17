@@ -4,7 +4,7 @@ import CloseButton from '../atoms/CloseButton'
 
 const ModalHeader = (props) => (
     <FlexBorderBottom height="40px" justifyContent="flex-end">
-        <CloseButton closeModal={props.closeModal}/>
+        <CloseButton handleChange={props.closeModal}/>
     </FlexBorderBottom>
 )
 

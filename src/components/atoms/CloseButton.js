@@ -6,6 +6,6 @@ const Btn = styled.button`
     height: 20px;
 `
 
-const CloseButton = (props) => <Btn onClick={props.closeModal}>&times;</Btn>
+const CloseButton = (props) => <Btn onClick={props.handleChange}>&times;</Btn>
 
 export default CloseButton
