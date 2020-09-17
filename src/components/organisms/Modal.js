@@ -14,7 +14,6 @@ const Modal = (props) => {
 
     const [university, setUniversity] = useState('')
     const [matchedUni, setMatchedUni] = useState([])
-    const allUniversities = props.allUniversities
     const [degree, setDegree] = useState('A.A.')
     const [study, setStudy] = useState('')
     const [startYear, setStartYear] = useState('')
@@ -26,7 +25,7 @@ const Modal = (props) => {
         const value = e.target.value
         setUniversity(value)
         if(value.length >= 3){
-            const matchedItems = allUniversities.filter(item => {
+            const matchedItems = props.allUniversities.filter(item => {
                 const name = item.name.toLowerCase()
                 const lowerCaseValue = value.toLowerCase()
                 return name.includes(lowerCaseValue)
