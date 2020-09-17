@@ -6,7 +6,7 @@ import University from '../molecules/University'
 import SelectSet from '../molecules/SelectSet'
 import Year from '../molecules/Year'
 import InputSet from '../molecules/InputSet'
-import Description from '../molecules/Description'
+import TextareaSet from '../molecules/TextareaSet'
 import Button from '../atoms/Button'
 
 const Modal = (props) => {
@@ -19,12 +19,14 @@ const Modal = (props) => {
     const [endYear, setEndYear] = useState('')
     const [gpa, setGpa] = useState(0)
     const [description, setDescription] = useState('')
+    
+    const allUniversities = props.allUniversities
 
     const handleTypingUniversity = (e) => {
         const value = e.target.value
         setUniversity(value)
         if(value.length >= 3){
-            const matchedItems = props.allUniversities.filter(item => {
+            const matchedItems = allUniversities.filter(item => {
                 const name = item.name.toLowerCase()
                 const lowerCaseValue = value.toLowerCase()
                 return name.includes(lowerCaseValue)
@@ -87,7 +89,7 @@ const Modal = (props) => {
                     handleChange={(e) => setEndYear(e.target.value)}
                 />
                 <InputSet title="GPA" type="number" value={gpa} handleChange={e => setGpa(e.target.value)} />
-                <Description title="Description" value={description} handleChange={e => setDescription(e.target.value)}/>
+                <TextareaSet title="Description" width="100%" height="200px" value={description} handleChange={e => setDescription(e.target.value)}/>
                 <Button color="white" bg="coral">Save</Button>
             </Form>
         </ModalBg> 
