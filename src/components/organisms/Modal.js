@@ -4,9 +4,8 @@ import Form from '../atoms/Form'
 import ModalHeader from '../molecules/ModalHeader'
 import University from '../molecules/University'
 import Degree from '../molecules/Degree'
-import Study from '../molecules/Study'
 import Year from '../molecules/Year'
-import Gpa from '../molecules/Gpa'
+import InputSet from '../molecules/InputSet'
 import Description from '../molecules/Description'
 import Button from '../atoms/Button'
 
@@ -74,7 +73,7 @@ const Modal = (props) => {
                     handleClick={handleUniversityClicked}
                 />
                 <Degree value={degree} handleChange={handleChangeOfDegree}/>
-                <Study value={study} handleChange={handleChangeOfStudy}/>
+                <InputSet title="Field Of Study" type="text" value={study} handleChange={handleChangeOfStudy}/>
                 <Year
                     title="Start Year"
                     value={startYear}
@@ -85,7 +84,7 @@ const Modal = (props) => {
                     value={endYear}
                     handleChange={(e) => setEndYear(e.target.value)}
                 />
-                <Gpa title="GPA" value={gpa} handleChange={e => setGpa(e.target.value)} />
+                <InputSet title="GPA" type="number" value={gpa} handleChange={e => setGpa(e.target.value)} />
                 <Description title="Description" value={description} handleChange={e => setDescription(e.target.value)}/>
                 <Button color="white" bg="coral">Save</Button>
             </Form>
