@@ -1,21 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
-import MainTitle from '../atoms/MainTitle'
+import FlexBox from '../atoms/FlexBox'
+import Title from '../atoms/Title'
 import Button from '../atoms/Button'
-
-const Container = styled.div`
-    margin-bottom: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
 
 const MainHeader = (props) => {
     return (
-        <Container>
-            <MainTitle userName={props.userName} />
+        <FlexBox height="120px" direction="column" justifyContent="space-evenly">
+            <Title>Welcome to {props.userName}'s education page</Title>
             <Button color="white" bg="dodgerblue" onClick={props.handleClick}>Add new education</Button>
-        </Container>
+        </FlexBox>
     )
 }
 
