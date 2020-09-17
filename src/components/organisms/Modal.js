@@ -5,6 +5,7 @@ import ModalHeader from '../molecules/ModalHeader'
 import University from '../molecules/University'
 import InputFieldWrapper from '../atoms/InputFieldWrapper'
 import Input from '../atoms/Input'
+import Degree from '../molecules/Degree'
 
 const Form = styled.form`
     width: 500px;
@@ -59,6 +60,10 @@ const Modal = (props) => {
         setMatchedUni([])
     }
 
+    const handleSetDegree = (e) => {
+        setDegree(e.target.value)
+    }
+
     const handleSave = (e) => {
         e.preventDefault()
         props.handleSave(university, degree, study, startYear, endYear, gpa, description)
@@ -72,30 +77,18 @@ const Modal = (props) => {
         setDescription('')
     }
 
-    
-
     return (
         <ModalContainer style={{display: displayModal}}>
             <Form>
                 <ModalHeader closeModal={props.closeModal} />
                 <University 
-                university={university}
-                updateUniversity={updateUniversity}
-                displayOptions={displayOptions}
-                matchedUni={matchedUni}
-                uniClicked={handleUniClicked}/>
-                <InputFieldWrapper>
-                    <label>Degree</label><br/>
-                    <select value={degree} onChange={(e) => setDegree(e.target.value)}>
-                        <option value="A.A.">A.A.</option>
-                        <option value="A.S.">A.S.</option>
-                        <option value="B.A.">B.A.</option>
-                        <option value="B.S.">B.S.</option>
-                        <option value="M.A.">M.A.</option>
-                        <option value="M.S.">M.S.</option>
-                        <option value="Ph.D.">Ph.D.</option>
-                    </select>
-                </InputFieldWrapper>
+                    university={university}
+                    updateUniversity={updateUniversity}
+                    displayOptions={displayOptions}
+                    matchedUni={matchedUni}
+                    uniClicked={handleUniClicked}
+                />
+                <Degree degree={degree} setDegree={handleSetDegree}/>
                 <InputFieldWrapper>
                     <label>Field of Study</label><br/>
                     <Input type="text" value={study} onChange={(e) => setStudy(e.target.value)} />
