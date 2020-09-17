@@ -4,7 +4,7 @@ import SelectElem from'../atoms/SelectElem'
 
 const Select = ({array, value, handleChange}) => {
 
-    const Options = array.map((item, index) => <Option value={item}>{item}</Option>)
+    const Options = array.map((item, index) => <Option value={item} key={index}>{item}</Option>)
 
     return <SelectElem value={value} onChange={handleChange}>{Options}</SelectElem>
 

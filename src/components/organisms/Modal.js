@@ -6,6 +6,7 @@ import University from '../molecules/University'
 import InputFieldWrapper from '../atoms/InputFieldWrapper'
 import Input from '../atoms/Input'
 import Degree from '../molecules/Degree'
+import Study from '../molecules/Study'
 
 const Form = styled.form`
     width: 500px;
@@ -14,10 +15,6 @@ const Form = styled.form`
     padding: 15px;
     overflow: scroll;
 `
-
-
-
-
 
 const Description = styled.textarea`
     width: 100%;
@@ -64,6 +61,10 @@ const Modal = (props) => {
         setDegree(e.target.value)
     }
 
+    const handleChangeOfStudy = (e) => {
+        setStudy(e.target.value)
+    }
+
     const handleSave = (e) => {
         e.preventDefault()
         props.handleSave(university, degree, study, startYear, endYear, gpa, description)
@@ -89,10 +90,7 @@ const Modal = (props) => {
                     uniClicked={handleUniClicked}
                 />
                 <Degree degree={degree} setDegree={handleSetDegree}/>
-                <InputFieldWrapper>
-                    <label>Field of Study</label><br/>
-                    <Input type="text" value={study} onChange={(e) => setStudy(e.target.value)} />
-                </InputFieldWrapper>
+                <Study value={study} handleChange={handleChangeOfStudy}/>
                 <InputFieldWrapper>
                     <label>Start Year</label> <br/>
                     <Input type="number" value={startYear} onChange={(e) => setStartYear(e.target.value)} placeholder="yyyy" />
