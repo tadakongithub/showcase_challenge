@@ -1,26 +1,13 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import ModalContainer from '../atoms/ModalContainer'
+import ModalForm from '../atoms/ModalForm'
 import ModalHeader from '../molecules/ModalHeader'
 import University from '../molecules/University'
-import InputFieldWrapper from '../atoms/InputFieldWrapper'
-import Input from '../atoms/Input'
 import Degree from '../molecules/Degree'
 import Study from '../molecules/Study'
 import Year from '../molecules/Year'
-
-const Form = styled.form`
-    width: 500px;
-    height: 400px;
-    background-color: #fff;
-    padding: 15px;
-    overflow: scroll;
-`
-
-const Description = styled.textarea`
-    width: 100%;
-    height: 200px;
-`
+import Gpa from '../molecules/Gpa'
+import Description from '../molecules/Description'
 
 const Modal = (props) => {
 
@@ -80,7 +67,7 @@ const Modal = (props) => {
 
     return (
         <ModalContainer style={{display: displayModal}}>
-            <Form onSubmit={handleSave}>
+            <ModalForm onSubmit={handleSave}>
                 <ModalHeader closeModal={props.closeModal} />
                 <University 
                     value={university}
@@ -100,16 +87,10 @@ const Modal = (props) => {
                     value={endYear}
                     handleChange={(e) => setEndYear(e.target.value)}
                 />
-                <InputFieldWrapper>
-                    <label>GPA</label><br/>
-                    <Input type="number" step="0.01" min="0" max="4" value={gpa} onChange={e => setGpa(e.target.value)} />
-                </InputFieldWrapper>
-                <InputFieldWrapper>
-                    <label>Description</label><br/>
-                    <Description value={description} onChange={e => setDescription(e.target.value)} />
-                </InputFieldWrapper>
+                <Gpa title="GPA" value={gpa} handleChange={e => setGpa(e.target.value)} />
+                <Description title="Description" value={description} handleChange={e => setDescription(e.target.value)}/>
                 <button>Click</button>
-            </Form>
+            </ModalForm>
         </ModalContainer> 
     )
 }

@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import NameFormHeader1 from '../atoms/NameFormHeader1'
-import NameFormHeader2 from '../atoms/NameFormHeader2'
+import P from '../atoms/P'
 import FormBox from '../atoms/FormBox'
-import NameFormBottom from '../molecules/NameFormBottom'
+import FlexBox from '../atoms/FlexBox'
+import Input from '../atoms/Input'
+import Button from '../atoms/Button'
 
 const NameForm = (props) => {
     const [userName, setUserName] = useState('')
 
     const changeUserName = (e) => {
+        console.log(e.target.value)
         setUserName(e.target.value)
     }
 
@@ -18,9 +20,12 @@ const NameForm = (props) => {
 
     return (
         <FormBox submitName={submitName}>
-            <NameFormHeader1 />
-            <NameFormHeader2 />
-            <NameFormBottom changeUserName={changeUserName}/>
+            <P text="Hi there! Welcome to your education showcase." />
+            <P text="Type your name and click Enter below to begin!" />
+            <FlexBox height="70px" direction="column" justifyContent="space-between">
+                <Input value={userName} onChange={changeUserName} />
+                <Button color="white" bg="palevioletred">Enter</Button>
+            </FlexBox>
         </FormBox>
     )
 }
