@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ModalContainer from '../atoms/ModalContainer'
+import ModalBg from '../atoms/ModalBg'
 import Form from '../atoms/Form'
 import ModalHeader from '../molecules/ModalHeader'
 import University from '../molecules/University'
@@ -20,8 +20,6 @@ const Modal = (props) => {
     const [endYear, setEndYear] = useState('')
     const [gpa, setGpa] = useState(0)
     const [description, setDescription] = useState('')
-
-    const displayModal = props.showModal ? 'flex' : 'none';
 
     const handleTypingUniversity = (e) => {
         const value = e.target.value
@@ -66,7 +64,7 @@ const Modal = (props) => {
     }
 
     return (
-        <ModalContainer style={{display: displayModal}}>
+        <ModalBg showModal={props.showModal}>
             <Form width="500px" height="500px" onSubmit={handleSave}>
                 <ModalHeader closeModal={props.closeModal} />
                 <University 
@@ -91,7 +89,7 @@ const Modal = (props) => {
                 <Description title="Description" value={description} handleChange={e => setDescription(e.target.value)}/>
                 <button>Click</button>
             </Form>
-        </ModalContainer> 
+        </ModalBg> 
     )
 }
 
