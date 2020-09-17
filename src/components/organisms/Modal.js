@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import ModalContainer from '../atoms/ModalContainer'
 import ModalHeader from '../molecules/ModalHeader'
+import University from '../molecules/University'
+import InputFieldWrapper from '../atoms/InputFieldWrapper'
+import Input from '../atoms/Input'
 
 const Form = styled.form`
     width: 500px;
@@ -11,34 +14,9 @@ const Form = styled.form`
     overflow: scroll;
 `
 
-const Ul = styled.ul`
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    height: 100px;
-    overflow: scroll;
-    position: absolute;
-    top: 23px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    width: 100%;
-`
 
-const Li = styled.li`
-    cursor: pointer;
-`
 
-const EachInputField = styled.div`
-    margin-top: 10px;
-`
 
-const Input = styled.input`
-    width: 100%;
-`
-
-const UniWrapper  = styled.div`
-    position: relative;
-`
 
 const Description = styled.textarea`
     width: 100%;
@@ -60,10 +38,9 @@ const Modal = (props) => {
     const displayModal = props.showModal ? 'flex' : 'none';
     const displayOptions = matchedUni.length  === 0 ? 'none' : 'block';
 
-    const handleChange = (e) => {
+    const updateUniversity = (e) => {
         const value = e.target.value
         setUniversity(value)
-        console.log(university)
         if(value.length > 3){
             const matchedItems = allUniversities.filter(item => {
                 const name = item.name.toLowerCase()
@@ -74,10 +51,9 @@ const Modal = (props) => {
         } else {
             setMatchedUni([])
         }
-        
     }
 
-    const handleClick = (e) => {
+    const handleUniClicked = (e) => {
         const text = e.target.innerHTML
         setUniversity(text)
         setMatchedUni([])
@@ -96,21 +72,19 @@ const Modal = (props) => {
         setDescription('')
     }
 
-    const listItems = matchedUni.map((item, index) => <Li key={index} onClick={handleClick}>{item.name}</Li>)
+    
 
     return (
         <ModalContainer style={{display: displayModal}}>
-            
             <Form>
                 <ModalHeader closeModal={props.closeModal} />
-                <EachInputField>
-                    <label>University</label><br/>
-                    <UniWrapper>
-                        <Input type="text" value={university} onChange={handleChange} />
-                        <Ul style={{display: displayOptions}}>{listItems}</Ul>
-                    </UniWrapper>
-                </EachInputField>
-                <EachInputField>
+                <University 
+                university={university}
+                updateUniversity={updateUniversity}
+                displayOptions={displayOptions}
+                matchedUni={matchedUni}
+                uniClicked={handleUniClicked}/>
+                <InputFieldWrapper>
                     <label>Degree</label><br/>
                     <select value={degree} onChange={(e) => setDegree(e.target.value)}>
                         <option value="A.A.">A.A.</option>
@@ -121,27 +95,27 @@ const Modal = (props) => {
                         <option value="M.S.">M.S.</option>
                         <option value="Ph.D.">Ph.D.</option>
                     </select>
-                </EachInputField>
-                <EachInputField>
+                </InputFieldWrapper>
+                <InputFieldWrapper>
                     <label>Field of Study</label><br/>
                     <Input type="text" value={study} onChange={(e) => setStudy(e.target.value)} />
-                </EachInputField>
-                <EachInputField>
+                </InputFieldWrapper>
+                <InputFieldWrapper>
                     <label>Start Year</label> <br/>
                     <Input type="number" value={startYear} onChange={(e) => setStartYear(e.target.value)} placeholder="yyyy" />
-                </EachInputField>
-                <EachInputField>
+                </InputFieldWrapper>
+                <InputFieldWrapper>
                     <label>End Year</label><br/>
                     <Input type="number" value={endYear} onChange={e => setEndYear(e.target.value)} placeholder="yyyy" />
-                </EachInputField>
-                <EachInputField>
+                </InputFieldWrapper>
+                <InputFieldWrapper>
                     <label>GPA</label><br/>
                     <Input type="number" step="0.01" min="0" max="4" value={gpa} onChange={e => setGpa(e.target.value)} />
-                </EachInputField>
-                <EachInputField>
+                </InputFieldWrapper>
+                <InputFieldWrapper>
                     <label>Description</label><br/>
                     <Description value={description} onChange={e => setDescription(e.target.value)} />
-                </EachInputField>
+                </InputFieldWrapper>
                 <button onClick={handleSave}>Click</button>
             </Form>
         </ModalContainer> 
