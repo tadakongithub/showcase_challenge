@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const FlexBox = styled.div.attrs(props => ({
+export const FlexBox = styled.div.attrs(props => ({
     width: props.width || 'auto',
     height: props.height || 'auto',
     direction: props.direction || 'row',
@@ -15,4 +15,6 @@ const FlexBox = styled.div.attrs(props => ({
     justify-content: ${props => props.justifyContent};
 `
 
-export default FlexBox
+export const FlexBorderBottom = styled(FlexBox)`
+    border-bottom: 1px solid lightgray;
+`

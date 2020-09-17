@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Paragraph from '../atoms/Paragraph'
 import Form from '../atoms/Form'
-import FlexBox from '../atoms/FlexBox'
+import { FlexBox } from '../atoms/FlexBox'
 import Input from '../atoms/Input'
 import Button from '../atoms/Button'
 

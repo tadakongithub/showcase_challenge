@@ -1,5 +1,5 @@
 import React from 'react'
-import FlexBox from '../atoms/FlexBox'
+import { FlexBox } from '../atoms/FlexBox'
 import Title from '../atoms/Title'
 import Button from '../atoms/Button'
 
