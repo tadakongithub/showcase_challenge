@@ -34,9 +34,8 @@ const Modal = (props) => {
     const [description, setDescription] = useState('')
 
     const displayModal = props.showModal ? 'flex' : 'none';
-    const displayOptions = matchedUni.length  === 0 ? 'none' : 'block';
 
-    const updateUniversity = (e) => {
+    const handleTypingUniversity = (e) => {
         const value = e.target.value
         setUniversity(value)
         if(value.length >= 3){
@@ -51,7 +50,7 @@ const Modal = (props) => {
         }
     }
 
-    const handleUniClicked = (e) => {
+    const handleUniversityClicked = (e) => {
         const text = e.target.innerHTML
         setUniversity(text)
         setMatchedUni([])
@@ -83,11 +82,10 @@ const Modal = (props) => {
             <Form onSubmit={handleSave}>
                 <ModalHeader closeModal={props.closeModal} />
                 <University 
-                    university={university}
-                    updateUniversity={updateUniversity}
-                    displayOptions={displayOptions}
+                    value={university}
+                    handleChange={handleTypingUniversity}
                     matchedUni={matchedUni}
-                    uniClicked={handleUniClicked}
+                    handleClick={handleUniversityClicked}
                 />
                 <Degree value={degree} handleChange={handleChangeOfDegree}/>
                 <Study value={study} handleChange={handleChangeOfStudy}/>
