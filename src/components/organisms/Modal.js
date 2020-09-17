@@ -3,7 +3,7 @@ import ModalBg from '../atoms/ModalBg'
 import Form from '../atoms/Form'
 import ModalHeader from '../molecules/ModalHeader'
 import University from '../molecules/University'
-import Degree from '../molecules/Degree'
+import SelectSet from '../molecules/SelectSet'
 import Year from '../molecules/Year'
 import InputSet from '../molecules/InputSet'
 import Description from '../molecules/Description'
@@ -41,6 +41,8 @@ const Modal = (props) => {
         setMatchedUni([])
     }
 
+    const ArrayOfDegrees = ['A.A.', 'A.S.', 'B.A.', 'B.S.', 'M.A.', 'M.S.', 'Ph.D.']
+
     const handleChangeOfDegree = (e) => {
         setDegree(e.target.value)
     }
@@ -72,7 +74,7 @@ const Modal = (props) => {
                     matchedUni={matchedUni}
                     handleClick={handleUniversityClicked}
                 />
-                <Degree value={degree} handleChange={handleChangeOfDegree}/>
+                <SelectSet title="Degree" array={ArrayOfDegrees} value={degree} handleChange={handleChangeOfDegree}/>
                 <InputSet title="Field Of Study" type="text" value={study} handleChange={handleChangeOfStudy}/>
                 <Year
                     title="Start Year"
