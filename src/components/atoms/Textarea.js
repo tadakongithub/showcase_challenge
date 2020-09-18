@@ -6,6 +6,9 @@ const Textarea = styled.textarea.attrs((props) => ({
 }))`
     width: ${(props) => props.width};
     height: ${(props) => props.height};
+    &:focus {
+        outline: none;
+    }
 `
 
 export default Textarea
