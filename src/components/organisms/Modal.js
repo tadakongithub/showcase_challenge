@@ -47,22 +47,25 @@ const Modal = (props) => {
 
     const handleSave = (e) => {
         e.preventDefault()
-        props.handleSave(university, degree, study, startYear, endYear, gpa, description)
-        setUniversity('')
-        setMatchedUni([])
-        setDegree('A.A.')
-        setStudy('')
-        setStartYear('')
-        setEndYear('')
-        setGpa(0)
-        setDescription('')
+        if(university !== ''){
+            props.handleSave(university, degree, study, startYear, endYear, gpa, description)
+            setUniversity('')
+            setMatchedUni([])
+            setDegree('A.A.')
+            setStudy('')
+            setStartYear('')
+            setEndYear('')
+            setGpa(0)
+            setDescription('')
+        }
     }
 
     return (
         <ModalBg showModal={props.showModal}>
             <Form width="500px" height="500px" onSubmit={handleSave}>
                 <ModalHeader closeModal={props.closeModal} />
-                <University 
+                <University
+                    title="University (necessary)"
                     value={university}
                     handleChange={handleTypingUniversity}
                     matchedUni={matchedUni}

@@ -15,9 +15,9 @@ const University = (props) => {
 
     return (
         <Wrapper>
-            <FieldLabel>University</FieldLabel><br/>
+            <FieldLabel>{props.title}</FieldLabel><br/>
             <Wrapper pos="relative">
-                <Input type="text" value={props.value} onChange={props.handleChange} />
+                <Input type="text" value={props.value} onChange={props.handleChange} error={props.value === ''}/>
                 <UniOptionsWrapper style={{display: showOptions}}>{listItems}</UniOptionsWrapper>
             </Wrapper>
         </Wrapper>
