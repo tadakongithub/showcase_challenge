@@ -6,6 +6,7 @@ const Input = styled.input.attrs(props => ({
     width: 100%;
     border-width: 1px;
     border-color: ${props => props.borderColor};
+    font-size: 1.3em;
     &:focus {
         outline: none;
     }
