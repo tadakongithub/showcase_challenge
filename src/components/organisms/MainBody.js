@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import SidePanel from '../molecules/SidePanel'
 import MainPanel from '../molecules/MainPanel'
@@ -12,12 +12,32 @@ const ContainerForEducationPanels = styled.div`
 ` 
 
 const MainBody = (props) => {
-    return (
-        <ContainerForEducationPanels>
-            <SidePanel education={props.education}/>
-            <MainPanel education={props.education} />
-        </ContainerForEducationPanels>
-    )
+
+    const [windowWidth, setWindowWidth] = useState(undefined)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth)
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        handleResize()
+
+        return () => window.removeEventListener('resize', handleResize)
+    })
+
+    if(windowWidth > 480){
+        return (
+            <ContainerForEducationPanels>
+                <SidePanel education={props.education}/>
+                <MainPanel education={props.education} />
+            </ContainerForEducationPanels>
+        )
+    }
+
+    return <MainPanel education={props.education} />
+    
 }
 
 export default MainBody
