@@ -16,7 +16,6 @@ const App = () => {
             const result = await axios(`http://universities.hipolabs.com/search`)
 
             setAllUniversities(result.data)
-            console.log('loaded')
             setIsLoading(false)
         }
         fetchData()
