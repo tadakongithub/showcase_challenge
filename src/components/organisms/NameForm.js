@@ -21,7 +21,7 @@ const NameForm = (props) => {
         <Form onSubmit={submitName}>
             <Paragraph text="Hi there! Welcome to your education showcase." />
             <Paragraph text="Type your name and click Enter below to begin!" />
-            <FlexBox height="70px" direction="column" justifyContent="space-between">
+            <FlexBox height="90px" direction="column" justifyContent="space-between">
                 <Input value={userName} onChange={changeUserName} />
                 <Button color="white" bg="palevioletred">Enter</Button>
             </FlexBox>

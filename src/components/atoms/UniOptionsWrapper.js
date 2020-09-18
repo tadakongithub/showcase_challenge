@@ -7,7 +7,7 @@ const UniOptionsWrapper = styled.ul`
     height: 100px;
     overflow: scroll;
     position: absolute;
-    top: 23px;
+    top: 26px;
     background-color: #fff;
     border: 1px solid #ddd;
     width: 100%;
