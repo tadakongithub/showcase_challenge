@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, {useState } from 'react'
 import Intro from './pages/Intro'
 import Main from './pages/Main'
 
@@ -10,7 +10,7 @@ const App = () => {
         setUserName(userName)
     }
 
-    return userName === '' ? <Intro setName={setName}/> : <Main userName={userName} allUniversities={allUniversities}/>
+    return userName === '' ? <Intro setName={setName}/> : <Main userName={userName}/>
     
 }
 
