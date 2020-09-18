@@ -27,7 +27,7 @@ const MainBody = (props) => {
         return () => window.removeEventListener('resize', handleResize)
     })
 
-    if(windowWidth > 480){
+    if(windowWidth >= 768){
         return (
             <ContainerForEducationPanels>
                 <SidePanel education={props.education}/>
