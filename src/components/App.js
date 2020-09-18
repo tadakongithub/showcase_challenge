@@ -5,15 +5,6 @@ import Main from './pages/Main'
 const App = () => {
 
     const [userName, setUserName] = useState('')
-    const [allUniversities, setAllUniversities] = useState(undefined)
-
-    useEffect(() => {
-        fetch(`http://universities.hipolabs.com/search`)
-        .then(res => res.json())
-        .then(result => {
-            setAllUniversities(result)
-        })
-    }, [])
 
     const setName = (userName) => {
         setUserName(userName)
