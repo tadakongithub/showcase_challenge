@@ -9,7 +9,6 @@ const NameForm = (props) => {
     const [userName, setUserName] = useState('')
 
     const changeUserName = (e) => {
-        console.log(e.target.value)
         setUserName(e.target.value)
     }
 
